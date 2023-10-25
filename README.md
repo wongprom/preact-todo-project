@@ -18,6 +18,9 @@ npm init preact
 npm run dev
 ```
 
+<sup><sub>Add Shadcn</sub></sup>
+https://ui.shadcn.com/docs/installation/vite
+
  <!--
 ## Getting Started
 
