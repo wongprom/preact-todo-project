@@ -1,9 +1,17 @@
 import { render } from 'preact';
+import { Button } from '@/components/ui/button';
 import './style.css';
 
 export function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-red-600">Hello world!</h1>
+    <div>
+      <h1 className="text-3xl font-bold underline text-red-600">
+        Hello world!
+      </h1>
+      <div className="flex items-center ">
+        <Button size="lg">Click me</Button>
+      </div>
+    </div>
   );
 }
 

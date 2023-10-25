@@ -7,10 +7,17 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"preact": "^10.13.1"
+		"@radix-ui/react-slot": "^1.0.2",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.0.0",
+		"lucide-react": "^0.289.0",
+		"preact": "^10.13.1",
+		"tailwind-merge": "^1.14.0",
+		"tailwindcss-animate": "^1.0.7"
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.5.0",
+		"@types/node": "^20.8.9",
 		"autoprefixer": "^10.4.16",
 		"postcss": "^8.4.31",
 		"tailwindcss": "^3.3.5",
