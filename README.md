@@ -18,8 +18,9 @@ npm init preact
 npm run dev
 ```
 
-<sup><sub>Add Shadcn</sub></sup>
-https://ui.shadcn.com/docs/installation/vite
+Add [tailwindcss](https://tailwindcss.com/docs/guides/vite)
+
+Add [Shadcn](https://ui.shadcn.com/docs/installation/vite)
 
  <!--
 ## Getting Started
