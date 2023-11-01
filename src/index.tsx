@@ -2,13 +2,8 @@ import { render } from 'preact';
 import './style.css';
 import TodoList from './components/TodoList';
 import CompletedTodoList from './components/CompletedTodoList';
-import { type } from 'os';
+import { Todo } from 'types';
 
-export type Todo = {
-  id: number;
-  item: string;
-  isComplete: boolean;
-};
 export function App() {
   const todos: Todo[] = [
     {
