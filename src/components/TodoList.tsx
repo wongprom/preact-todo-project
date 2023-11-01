@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from 'preact/hooks';
 import {
   Table,
   TableBody,
@@ -9,13 +10,11 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Checkbox } from '@/components/ui/checkbox';
+import { TodoContext } from '..';
 import { Todo } from 'types';
 
-type Props = {
-  allTodos: Todo[];
-};
-
-const TodoList = ({ allTodos }: Props) => {
+const TodoList = () => {
+  const { todos, setTodos } = useContext(TodoContext);
   return (
     <section className="todos m-3 p-3 bg-red-100">
       <h2 className="text-3xl text-center">Todos</h2>
@@ -28,7 +27,7 @@ const TodoList = ({ allTodos }: Props) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {allTodos.map((todo) => {
+            {todos.map((todo: Todo) => {
               if (todo.isComplete) return;
               return (
                 <TableRow key={todo.id} className="p-2">
