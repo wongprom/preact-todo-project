@@ -9,7 +9,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Todo } from '..';
+import { Todo } from 'types';
 
 type Props = {
   allTodos: Todo[];
