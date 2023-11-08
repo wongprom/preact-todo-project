@@ -1,11 +1,9 @@
-import { createContext, render } from 'preact';
+import { render } from 'preact';
 import './style.css';
 import TodoList from './components/TodoList';
 import CompletedTodoList from './components/CompletedTodoList';
 import { Todo } from 'types';
-import { useMemo, useState } from 'preact/hooks';
-
-export const TodoContext = createContext(null);
+import { useState } from 'preact/hooks';
 
 export function App() {
   const todosInitData: Todo[] = [
@@ -42,25 +40,20 @@ export function App() {
   ];
   const [todos, setTodos] = useState(todosInitData);
 
-  const todoItems = useMemo(() => {
-    return { todos, setTodos };
-  }, [todos]);
-
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-4xl font-bold underline text-center text-red-600">
         Your Todo List
       </h1>
-      <TodoContext.Provider value={todoItems}>
-        <div className="flex gap-4">
-          <TodoList />
-          <CompletedTodoList />
-        </div>
-        <section className="addNewTodo">
-          <h2 className="text-3xl">Add New Todo</h2>
-          <div>{/* set up form with one input  */}</div>
-        </section>
-      </TodoContext.Provider>
+
+      <div className="flex gap-4">
+        <TodoList todos={todos} />
+        <CompletedTodoList todos={todos} />
+      </div>
+      <section className="addNewTodo">
+        <h2 className="text-3xl">Add New Todo</h2>
+        <div>{/* set up form with one input  */}</div>
+      </section>
     </div>
   );
 }

@@ -1,5 +1,3 @@
-import React from 'react';
-import { useContext } from 'preact/hooks';
 import {
   Table,
   TableBody,
@@ -11,10 +9,11 @@ import {
 } from '@/components/ui/table';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Todo } from 'types';
-import { TodoContext } from '..';
 
-const CompletedTodoList = () => {
-  const { todos, setTodos } = useContext(TodoContext);
+type Props = {
+  todos: Todo[];
+};
+const CompletedTodoList = ({ todos }: Props) => {
   return (
     <section className="completedTodos m-3 p-3 bg-green-100">
       <h2 className="text-3xl text-center">Completed Todos</h2>
