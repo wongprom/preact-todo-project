@@ -9,14 +9,18 @@ import {
 } from '@/components/ui/table';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Todo } from 'types';
+import { Button } from './ui/button';
 
 type Props = {
-  todos: Todo[];
+  todos: {
+    value: Todo[];
+  };
+  removeTodo: (id: string) => void;
 };
 
-const TodoList = ({ todos }: Props) => {
+const TodoList = ({ todos, removeTodo }: Props) => {
   return (
-    <section className="todos m-3 p-3 bg-red-100">
+    <section className="m-3 p-3">
       <h2 className="text-3xl text-center">Todos</h2>
       <div>
         <Table>
@@ -27,12 +31,27 @@ const TodoList = ({ todos }: Props) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {todos.map((todo: Todo) => {
-              if (todo.isComplete) return;
+            {todos.value.map((todo: Todo) => {
               return (
                 <TableRow key={todo.id} className="p-2">
-                  <Checkbox />
-                  <TableCell className="font-medium">{todo.item}</TableCell>
+                  <Checkbox
+                    checked={todo.isComplete}
+                    onClick={() => {
+                      todo.isComplete = !todo.isComplete;
+                      todos.value = [...todos.value];
+                    }}
+                  />
+                  <TableCell className="font-medium">
+                    {' '}
+                    {todo.isComplete ? <s>{todo.item}</s> : todo.item}
+                  </TableCell>
+                  <Button
+                    className="ml-auto"
+                    variant="destructive"
+                    onClick={() => removeTodo(todo.id)}
+                  >
+                    X
+                  </Button>
                 </TableRow>
               );
             })}
